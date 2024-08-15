@@ -13,11 +13,11 @@ class CategoryAdmin(admin.ModelAdmin):
         }
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display=('title','brand','slug','price','available', 'created_at','updated_at')
+    list_display=('title','brand','price','discount','available', 'created_at','updated_at')
     list_filter = ('available','created_at','updated_at')
     ordering = ('title',) 
 
-    def get_prepopulated_fields(self, requestpyt, obj=None) :
+    def get_prepopulated_fields(self, request, obj=None) :
         return {
             'slug':('title',),
         }
